@@ -3,11 +3,12 @@ defmodule HedwigGithub.Mixfile do
 
   def project do
     [app: :hedwig_github,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      description: description,
+     package: package,
      deps: deps()]
   end
 
@@ -20,7 +21,7 @@ defmodule HedwigGithub.Mixfile do
       :tentacat,
       :logger,
     ],
-     mod: {HedwigGithub, []}]
+  mod: {HedwigGithub, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -42,15 +43,16 @@ defmodule HedwigGithub.Mixfile do
   defp package do
     [# These are the default files included in the package
      name: :hedwig_github,
-     files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
      maintainers: ["shotat"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/shotat/hedwig_github"}
+     links: %{"GitHub" => "https://github.com/shotat/hedwig_github"}]
   end
+
   defp deps do
     [
       {:tentacat, "~> 0.5"},
-      {:hedwig, github: "hedwig-im/hedwig"},
+      {:hedwig, "~> 1.0.0-rc.4"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 end
