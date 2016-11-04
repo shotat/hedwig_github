@@ -7,6 +7,7 @@ defmodule HedwigGithub.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description,
      deps: deps()]
   end
 
@@ -31,6 +32,21 @@ defmodule HedwigGithub.Mixfile do
   #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
   #
   # Type "mix help deps" for more examples and options
+
+  defp description do
+    """
+    A GitHub responder for Hedwig.
+    """
+  end
+
+  defp package do
+    [# These are the default files included in the package
+     name: :hedwig_github,
+     files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+     maintainers: ["shotat"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/shotat/hedwig_github"}
+  end
   defp deps do
     [
       {:tentacat, "~> 0.5"},
