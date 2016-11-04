@@ -16,6 +16,7 @@ defmodule HedwigGithub.Mixfile do
   def application do
     [applications: [
       :hedwig,
+      :tentacat,
       :logger,
     ],
      mod: {HedwigGithub, []}]
