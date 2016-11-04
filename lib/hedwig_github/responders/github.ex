@@ -2,13 +2,11 @@ defmodule HedwigGithub.Responders.Github do
   use Hedwig.Responder
 
   @usage """
-  bot: github <repository name>
+  hedwig: github <repository name> - Respond with GitHub url with stars count.
   """
   respond ~r/github(?: +)(.+)/i, msg do
-    %{matches: %{1 => query}} = msg
-    query
-    |> search_repository
-    |> reply(msg)
+    %{matches: %{1 => q}} = msg
+    reply msg, search_repository(q)
   end
 
   def search_repository(repository_name) do
@@ -16,7 +14,7 @@ defmodule HedwigGithub.Responders.Github do
     params = %{
       q: repository_name,
       per_page: 1,
-      sort: "stars",
+      # sort: "stars",
     }
     options = [ pagination: :none ]
 
@@ -30,7 +28,6 @@ defmodule HedwigGithub.Responders.Github do
       "?"
     end
   end
-
 
   defp parse_item(item) do
     %{"html_url" => url, "stargazers_count" => stars} = item
