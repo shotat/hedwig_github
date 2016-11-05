@@ -4,17 +4,16 @@ A GitHub responder for Hedwig.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+After you create a Hedwig robot, add hedwig_github to your list of dependencies in mix.exs:
 
-  1. Add `hedwig_github` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:hedwig_github, "~> 0.1.0"}]
+      [{:hedwig_github, "~> 0.1.1"}]
     end
     ```
 
-  2. Ensure `hedwig_github` is started before your application:
+Ensure `hedwig_github` is started before your application:
 
     ```elixir
     def application do
@@ -22,3 +21,4 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
+Lastly, add HedwigGithub.Responders.Github as a responder to your robot in mix.exs.
