@@ -19,6 +19,6 @@ Ensure `hedwig_github` is started before your application:
 def application do
   [applications: [:hedwig_github]]
 end
-    ```
+```
 
 Lastly, add HedwigGithub.Responders.Github as a responder to your robot in mix.exs.
